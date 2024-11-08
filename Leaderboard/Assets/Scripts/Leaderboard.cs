@@ -5,6 +5,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using PlayFab.MultiplayerModels;
+//using System.Diagnostics;
 
 public class Leaderboard : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class Leaderboard : MonoBehaviour
     void Awake() { instance = this; }
     public void OnLoggedIn()
     {
-        leaderboardCanvas.SetActive(false);
+        leaderboardCanvas.SetActive(true);
+        Debug.Log("logged in");
         DisplayLeaderboard();
     }
     public void DisplayLeaderboard()
@@ -44,7 +46,7 @@ public class Leaderboard : MonoBehaviour
     }
     public void SetLeaderboardEntry(int newScore)
     {
-        bool useLegacyMethod = true;
+        bool useLegacyMethod = false;
         if (useLegacyMethod)
         {
             ExecuteCloudScriptRequest request = new ExecuteCloudScriptRequest
